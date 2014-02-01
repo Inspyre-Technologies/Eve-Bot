@@ -249,8 +249,8 @@ module Cinch::Plugins
  
     match lambda {|m| /#{m.bot.nick}(\S|) (how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\W|$)/i}, :method => :hau, use_prefix: false
     match lambda {|m| /(how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hau, use_prefix: false
-    match lambda {|m| /(hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hallo|hiya|howdy|greetings)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hi, use_prefix: false
-    match lambda {|m| /#{m.bot.nick}(\S|) (hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hallo|hiya|howdy|greetings)(\W|$)/i}, :method => :hi, use_prefix: false
+    match lambda {|m| /(hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|hallo|hiya|howdy|greetings)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hi, use_prefix: false
+    match lambda {|m| /#{m.bot.nick}(\S|) (hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|hallo|hiya|howdy|greetings)(\W|$)/i}, :method => :hi, use_prefix: false
     match /brb/i, :method => :brb, use_prefix: false
     match /bbs/i, :method => :brb, use_prefix: false
     match lambda {|m| /(shut up|shut it|stfu|shut the fuck up|shutup|shut up already|shutup already)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :sup, use_prefix: false

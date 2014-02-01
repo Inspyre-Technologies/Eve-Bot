@@ -191,7 +191,7 @@ module Cinch::Plugins
     
     def dirtyr_m(m)
       [
-        Format(:green, "Master #{m.user.nick}, do you really think you should be grinding on my in public?"),
+        Format(:green, "Master #{m.user.nick}, do you really think you should be grinding on me in public?"),
         Format(:green, "Well Master #{m.user.nick}, if you want to take things that far, we should do it in private."),
         Format(:green, "Uhm, Master #{m.user.nick}, this is a public channel."),
         Format(:green, "Oh. So is that the only reason you keep me around, Master #{m.user.nick}?")
