@@ -2,7 +2,6 @@
 require 'cinch'
 require 'cinch/toolbox'
 require 'yaml'
-require 'cinch/cooldown'
 require 'time-lord'
 
 module Cinch
@@ -12,16 +11,14 @@ module Cinch
       
       Activity = Struct.new(:nick, :time, :message, :channel)
       
-      enforce_cooldown
-      
       listen_to :channel
       
       set :plugin_name, 'seen'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
-        Allows you to control the basic functions of the bot.
-        Usage:
-        * !seen <user>: The bot searches for the last time <user> spoke and returns with the results.
-        USAGE
+      Allows you to control the basic functions of the bot.
+      Usage:
+	* !seen <user>: The bot searches for the last time <user> spoke and returns with the results.
+      USAGE
       
       match /seen ([^\s]+)\z/
       
@@ -30,7 +27,7 @@ module Cinch
           if File.exist?('docs/seen.yaml')
             @storage = YAML.load_file('docs/seen.yaml')
           else
-            @storage = {}
+	    @storage = {}
           end
         end
         
@@ -39,14 +36,14 @@ module Cinch
         channel = m.channel.name
         @storage[nick.downcase] ||= {}
         @storage[nick.downcase]['seen'] =
-          Activity.new(nick, Time.now, m.message, channel)
+        Activity.new(nick, Time.now, m.message, channel)
         update_store
       end
       
       def execute(m, nick)
         return if pm(m)
-        unless m.user.nick.downcase == nick.downcase
-          m.reply seen(nick), true
+	unless m.user.nick.downcase == nick.downcase
+	  m.reply seen(nick), true
         end
       end
       

@@ -1,13 +1,10 @@
 require 'cinch'
 require 'cinch/toolbox'
-require 'cinch/cooldown'
 
 module Cinch
   module Plugins
     class Wikipedia
       include Cinch::Plugin
-
-      enforce_cooldown
 
       match /wiki (.*)/
       match /wikipedia (.*)/

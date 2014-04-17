@@ -4,11 +4,12 @@ module Cinch::Plugins
   class FactCore
     include Cinch::Plugin
     
+    set :prefix, /^~/
     set :plugin_name, 'factcore'
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Gives a funny, and sometimes true fact
       Usage:
-      - !fact: This will cause me to return with a funny (and sometimes true) fact!
+      - ~fact: This will cause me to return with a funny (and sometimes true) fact!
       USAGE
     
     def fact(m)
@@ -34,8 +35,7 @@ module Cinch::Plugins
         Format(:green, "The Sun is 330,330 times the size of Earth."),
         Format(:green, "The average life expectancy of a rhinoceros living in captivity is 15 years."),
         Format(:green, "Volcano-ologists are experts in the study of volcanoes."),
-        Format(:green, "Avocados have the highest fiber and calories of any fruit."),
-        Format(:green, "Avocados have the highest fiber and calories of any fruit. They are found in Australians."),
+        Format(:green, "Avocados have the highest fiber and calories of any fruit. They are found in Australia."),
         Format(:green, "The Moon orbits the Earth every 27.32 days."),
         Format(:green, "The billionth digit of pi is nine."),
         Format(:green, "If you have trouble with simple counting, use the following mneumonic device: One, comes before two, comes before sixty, comes after twelve, comes before six-trillion, comes after five-hundred-and-four. This will make your earlier counting difficulties seem like no big deal."),
@@ -88,5 +88,9 @@ module Cinch::Plugins
     end
   end
 end
-        
+
+# EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
+# Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
+# For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
+# For help with EVE you can always visit #Eve at rawr.sinsira.net        
         

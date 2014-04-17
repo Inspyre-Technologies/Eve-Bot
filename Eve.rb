@@ -1,6 +1,6 @@
 require 'cinch'
 require 'redis'
-require_relative "lib/eve/plugins/urban_dictionary"
+require_relative "lib/eve/plugins/urban"
 require_relative "lib/eve/plugins/help"
 require_relative "lib/eve/plugins/seen"
 require_relative "lib/eve/plugins/greeting"
@@ -29,6 +29,9 @@ require_relative "lib/eve/plugins/user_info"
 require_relative "lib/eve/plugins/isitup"
 require_relative "lib/eve/plugins/relationship_handler"
 require_relative "lib/eve/plugins/admin_handler"
+require_relative "lib/eve/plugins/four_chan"
+require_relative "lib/eve/plugins/dictionary"
+require_relative "lib/eve/plugins/news"
 
 
 # You should have something in the block below as it will have Eve report
@@ -51,36 +54,39 @@ bot = Cinch::Bot.new do
   c.channels = ["#Eve"]
   c.nick = "Eve"
   c.user = "Eve"
-  c.realname = "Eve 5.0"
+  c.realname = "Eve 6.0"
   c.plugins.plugins = [Cinch::Plugins::PluginManagement,
-	Cinch::Plugins::UrbanDictionary,
-	Cinch::Plugins::Help,
-	Cinch::Plugins::Seen,
-	Cinch::Plugins::Greeting,
-	Cinch::Plugins::Eightball,
-	Cinch::Plugins::Decide,
-	Cinch::Plugins::Memo,
-  Cinch::Plugins::AIRespond,
-  Cinch::Plugins::ControlPanel,
-  Cinch::Plugins::ChanopCP,
-  Cinch::Plugins::PrivateCP,
-  Cinch::Plugins::PrivChanCP,
-  Cinch::Plugins::FactCore,
-  Cinch::Plugins::ActAI,
-  Cinch::Plugins::UrlScraper,
-  Cinch::Plugins::Twitter,
-  Cinch::Plugins::TwitterStatus,
-  Cinch::Plugins::ValentineBoxx,
-  Cinch::Plugins::Wikipedia,
-  Cinch::Plugins::Weather,
-  Cinch::Plugins::Google,
-  Cinch::Plugins::YouTube,
-  Cinch::Plugins::Math,
-  Cinch::Plugins::Bitcoin,
-  Cinch::Plugins::UserInfo,
-  Cinch::Plugins::Isitup,
-  Cinch::Plugins::RelationshipHandler,
-  Cinch::Plugins::AdminHandler];
+                       Cinch::Plugins::Urban,
+                       Cinch::Plugins::Help,
+                       Cinch::Plugins::Seen,
+                       Cinch::Plugins::Greeting,
+                       Cinch::Plugins::Eightball,
+                       Cinch::Plugins::Decide,
+                       Cinch::Plugins::Memo,
+                       Cinch::Plugins::Ai,
+                       Cinch::Plugins::ControlPanel,
+                       Cinch::Plugins::ChanopCP,
+                       Cinch::Plugins::PrivateCP,
+                       Cinch::Plugins::PrivChanCP,
+                       Cinch::Plugins::FactCore,
+                       Cinch::Plugins::ActAI,
+                       Cinch::Plugins::UrlScraper,
+                       Cinch::Plugins::Twitter,
+                       Cinch::Plugins::TwitterStatus,
+                       Cinch::Plugins::ValentineBoxx,
+                       Cinch::Plugins::Wikipedia,
+                       Cinch::Plugins::Weather,
+                       Cinch::Plugins::Google,
+                       Cinch::Plugins::YouTube,
+                       Cinch::Plugins::Math,
+                       Cinch::Plugins::Bitcoin,
+                       Cinch::Plugins::UserInfo,
+                       Cinch::Plugins::Isitup,
+                       Cinch::Plugins::RelationshipHandler,
+                       Cinch::Plugins::AdminHandler,
+                       Cinch::Plugins::FourChan,
+                       Cinch::Plugins::Dictionary,
+                       Cinch::Plugins::News];
   #c.plugins.options[Cinch::Plugins::UrlScraper] = { enabled_channels: ["#foo", "#bar" "#channel"] }
   #c.plugins.options[Cinch::Plugins::Greeting] = { enabled_channels: ["#foo", "#bar" "#channel"] }
   #c.plugins.options[Cinch::Plugins::TwitterStatus] = {
@@ -98,7 +104,7 @@ bot = Cinch::Bot.new do
   #} 
 #}
   c.plugins.options[Cinch::Plugins::Weather] = { key: 'foo' }
-    c.password = "nspass"
+  c.password = "nspass"
   end
 end
 
