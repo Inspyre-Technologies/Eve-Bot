@@ -23,8 +23,6 @@ module Cinch
           gender.responses[:ask_on_error] = gender
         end
 
-        botnick = $settings_file['nick'].to_s
-
         choose do |sexuality|
           sexuality.prompt = "What will be #{botnick}'s sexuality?: "
           sexuality.default = "Bisexual"
