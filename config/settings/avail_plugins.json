@@ -1,22 +1,78 @@
+
 {
-  "plugins": {
-    "eveMotion": {
+
+  "plugins":
+    {
+
+    "eveMotion":
+        {
+
       "keyRequired": false,
+
       "constant": "Cinch::Plugins::EveMotion",
+
       "file": "eve_motion.rb",
+
       "apiURL": ""
-    },
-    "UserInfo": {
+
+        },
+
+    "UserInfo":
+        {
+
       "keyRequired": false,
+
       "constant": "Cinch::Plugins::UserInfo",
+
       "file": "user_info.rb",
+
       "apiURL": ""
-    },
-    "Greet": {
+
+        },
+
+    "Greet":
+        {
+
       "keyRequired": false,
+
       "constant": "Cinch::Plugins::Greet",
+
       "file": "greet.rb",
+
       "apiURL": ""
+
+        },
+
+    "Buffer":
+        {
+
+       "keyRequired": false,
+
+       "constant": "Cinch::Plugins::Buffer",
+
+       "file": "buffer.rb",
+
+       "apiURL": "",
+
+       "dependants": "Seen"
+
+        },
+
+     "Seen":
+        {
+
+       "keyRequired": false,
+
+       "constant": "Cinch::Plugins::Seen",
+
+       "file": "seen.rb",
+
+       "apiURL": ""
+
+        }
+
+
     }
-  }
+
+
 }
