@@ -1,11 +1,14 @@
 require 'yaml'
 require 'json'
 require 'tempfile'
+require_relative '../helpers/logger'
 
 module Cinch
   module Plugins
     class ConfigChecks
       include Cinch::Plugin
+
+      PluginName = "ConfigChecks"
 
       # This block checks for several files, and
       # if they are not there it will run the first-
@@ -31,11 +34,12 @@ module Cinch
           AdminFirstRun.new(*args)
         end
         if File.exist?('config/settings/plugins.rb')
-          puts "Plugins file exists...starting bot."
+          log_message("message", "Plugins file exists, starting bot...", PluginName)
         else
+          log_message("message", "Plugins file does not exist, running first-run for plugins.", PluginName)
           load 'lib/utils/plugins_first_run.rb'
           PluginsFirstRun.new(*args)
-          puts "Restarting bot to apply first run changes..."
+          log_message("warn", "Restarting bot to apply first run changes...", PluginName, "yes")
           system("kill #{Process.pid}&& ruby Eve.rb")
         end
       end
