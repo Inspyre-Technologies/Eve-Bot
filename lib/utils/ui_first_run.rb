@@ -9,7 +9,7 @@ module Cinch
   module Plugins
     class UIFirstRun
       include Cinch::Plugin
-      
+
       def initialize(*args)
         super
         if File.exist?('config/settings/user_info.yaml')
@@ -31,7 +31,7 @@ module Cinch
           @userSettings = {}
           @userSettings[user_nick] ||= {}
           if agree("Would you like to start off by providing me with another name for you, like an irl nickname or real name? [yes/no]: ")
-            irl_name = ask("Please enter your name (irl nickname, first name: ") {|q|
+            irl_name = ask("Please enter your name (irl nickname, first name): ") {|q|
               q.validate = /\A\w+\Z/
               q.responses[:not_valid] = "You can't have a blank name!"
               q.responses[:ask_on_error] = "Your name: "
@@ -148,7 +148,7 @@ module Cinch
           update_settings
         end
       end
-      
+
       def update_settings
         log_message("message", "Writing user information file...")
         begin
@@ -165,7 +165,7 @@ module Cinch
         log_message("message", "User information file written!")
         say("Master file written!")
       end
-        
+
       def delete_settings
         log_message("warn", "Deleting user_info.yaml...")
         begin
